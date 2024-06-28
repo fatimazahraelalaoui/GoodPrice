@@ -4,6 +4,7 @@ const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -23,6 +24,15 @@ db.serialize(() => {
         password TEXT, 
         fullname TEXT
     )`);
+});
+
+// Configure Nodemailer
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'email@gmail.com',
+        pass: 'password', // Use an App Password if you have 2FA enabled
+    },
 });
 
 // Register endpoint
@@ -55,6 +65,26 @@ app.post('/login', (req, res) => {
         }
         const token = jwt.sign({ id: user.id, username: user.username }, SECRET_KEY, { expiresIn: '1h' });
         res.json({ token });
+    });
+});
+
+// Contact form endpoint
+app.post('/contact', (req, res) => {
+    const { name, email, message } = req.body;
+
+    const mailOptions = {
+        from: email,
+        to: 'khzarrouki@gmail.com',
+        subject: `Contact form submission from ${name}`,
+        text: message,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error sending email:', error);
+            return res.status(500).json({ error: 'Failed to send email' });
+        }
+        res.status(200).json({ message: 'Email sent successfully' });
     });
 });
 
