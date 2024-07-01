@@ -4,7 +4,6 @@ const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -24,15 +23,84 @@ db.serialize(() => {
         password TEXT, 
         fullname TEXT
     )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS products (
+        id INTEGER PRIMARY KEY,
+        title TEXT,
+        category TEXT,
+        price REAL,
+        description TEXT,
+        image TEXT
+    )`);
+
+    // Insert some example products if table is empty
+    db.get('SELECT COUNT(*) AS count FROM products', (err, row) => {
+        if (row.count === 0) {
+            const products = [
+                {
+                    title: 'Product 1',
+                    category: 'electronics',
+                    price: 99.99,
+                    description: 'This is product 1 description.',
+                    image: 'https://example.com/product1.jpg'
+                },
+                {
+                    title: 'Product 2',
+                    category: 'clothing',
+                    price: 49.99,
+                    description: 'This is product 2 description.',
+                    image: 'https://example.com/product2.jpg'
+                }
+                // Add more products as needed
+            ];
+
+            const insertProducts = db.prepare(`INSERT INTO products (title, category, price, description, image) VALUES (?, ?, ?, ?, ?)`);
+            products.forEach(product => {
+                insertProducts.run(product.title, product.category, product.price, product.description, product.image);
+            });
+            insertProducts.finalize();
+        }
+    });
 });
 
-// Configure Nodemailer
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'email@gmail.com',
-        pass: 'password', // Use an App Password if you have 2FA enabled
-    },
+// Fetch all products endpoint
+app.get('/api/products', (req, res) => {
+    db.all(`SELECT * FROM products`, (err, rows) => {
+        if (err) {
+            console.error('Error fetching products:', err);
+            res.status(500).json({ error: 'Failed to fetch products' });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+// Fetch a single product by ID endpoint
+app.get('/api/products/:id', (req, res) => {
+    const productId = req.params.id;
+    db.get(`SELECT * FROM products WHERE id = ?`, [productId], (err, row) => {
+        if (err) {
+            console.error('Error fetching product:', err);
+            res.status(500).json({ error: 'Failed to fetch product' });
+        } else if (!row) {
+            res.status(404).json({ error: 'Product not found' });
+        } else {
+            res.json(row);
+        }
+    });
+});
+
+// Fetch products by category endpoint
+app.get('/api/products/category/:category', (req, res) => {
+    const category = req.params.category;
+    db.all(`SELECT * FROM products WHERE category = ?`, [category], (err, rows) => {
+        if (err) {
+            console.error('Error fetching products:', err);
+            res.status(500).json({ error: 'Failed to fetch products' });
+        } else {
+            res.json(rows);
+        }
+    });
 });
 
 // Register endpoint
@@ -85,6 +153,27 @@ app.post('/contact', (req, res) => {
             return res.status(500).json({ error: 'Failed to send email' });
         }
         res.status(200).json({ message: 'Email sent successfully' });
+    });
+});
+
+// Get products by category
+app.get('/api/products/category/:category', (req, res) => {
+    const { category } = req.params;
+    db.all(`SELECT * FROM products WHERE category = ?`, [category], (err, rows) => {
+        if (err) {
+            return res.status(400).json({ error: err.message });
+        }
+        res.json(rows);
+    });
+});
+
+// Get unique categories
+app.get('/api/categories', (req, res) => {
+    db.all(`SELECT DISTINCT category FROM products`, [], (err, rows) => {
+        if (err) {
+            return res.status(400).json({ error: err.message });
+        }
+        res.json(rows);
     });
 });
 
