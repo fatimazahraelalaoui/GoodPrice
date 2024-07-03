@@ -73,14 +73,14 @@ db.serialize(() => {
                     "category": "shoes",
                     "price": 120.00,
                     "description": "Step into comfort and style with our Urban Comfort Grey Sneakers. Crafted from premium materials, these sneakers offer a perfect blend of durability and modern design. The cushioned EVA midsole and removable insole provide exceptional support, making them ideal for all-day wear. Whether you're exploring the city, heading to a casual outing, or engaging in light athletic activities, these versatile sneakers will keep you looking and feeling great. Experience the perfect combination of comfort and style—order your pair today!",
-                    "image": "http://localhost:5001/images/sneakers.jpg"
+                    "image": "http://localhost:5001/images/sneackers.jpg"
                 },
                 {
                     "title": "Artisan Beige Handmade Bag",
                     "category": "bag",
                     "price": 85.00,
                     "description": "Our Artisan Beige Handmade Bag combines style, functionality, and sustainability. Crafted from natural cotton canvas, this bohemian-chic tote is perfect for everyday use. The spacious interior and multiple pockets provide ample storage, while the handcrafted quality ensures each bag is unique. With its versatile design and eco-friendly materials, this bag is a must-have accessory for any wardrobe.",
-                    "image": "http://localhost:5001/images/bag.jpg"
+                    "image": "http://localhost:5001/images/bag_beige.jpg"
                 },
                 {
                     "title": "Elegant Stiletto High Heels",
@@ -108,7 +108,7 @@ db.serialize(() => {
                     "category": "jewelry",
                     "price": 60.00,
                     "description": "Our Chic Silver Swag Necklace is designed for the modern fashionista. With its trendy multiple-layer design and high-polish finish, this necklace adds a touch of glamour to any outfit. The cascading chains and elegant silver beads create a sophisticated and stylish look, perfect for both casual and semi-formal occasions. Whether you're dressing up for a night out or adding a chic touch to your everyday wear.",
-                    "image": "http://localhost:5001/images/silver-swag-necklace.jpg"
+                    "image": "http://localhost:5001/images/silver-rings-jewelry.jpg"
                 },
                 {
                     "title": "Classic Leather Handbag",
