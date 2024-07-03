@@ -4,56 +4,51 @@ const AboutPage = () => {
   return (
     <>
       <Navbar />
-      <div className="container my-3 py-3">
-        <h1 className="text-center">About Us</h1>
-        <hr />
-        <p className="lead text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-          facere doloremque veritatis odit similique sequi. Odit amet fuga nam
-          quam quasi facilis sed doloremque saepe sint perspiciatis explicabo
-          totam vero quas provident ipsam, veritatis nostrum velit quos
-          recusandae est mollitia esse fugit dolore laudantium. Ex vel explicabo
-          earum unde eligendi autem praesentium, doloremque distinctio nesciunt
-          porro tempore quis eaque labore voluptatibus ea necessitatibus
-          exercitationem tempora molestias. Ad consequuntur veniam sequi ullam
-          tempore vel tenetur soluta dolore sunt maxime aliquam corporis est,
-          quo saepe dolorem optio minus sint nemo totam dolorum! Reprehenderit
-          delectus expedita a alias nam recusandae illo debitis repellat libero,
-          quasi explicabo molestiae saepe, dolorem tempore itaque eveniet quam
-          dignissimos blanditiis excepturi harum numquam vel nihil? Ipsum
-        </p>
+      <div className="container my-5">
+        <div className="row mb-5">
+          <div className="col text-center">
+            <h1>About Us</h1>
+            <hr className="mx-auto w-50" />
+            <p className="lead">
+              At GoodPrice, we believe that fashion is more than just clothing—it's an expression of who you are. We are passionate about providing our customers with high-quality, not expensive, stylish, and affordable clothing that makes you feel confident and look fabulous.
+            </p>
+          </div>
+        </div>
 
-        <h2 className="text-center py-4">Our Products</h2>
-        <div className="row">
-          <div className="col-md-3 col-sm-6 mb-3 px-3">
+        <div className="row mb-5">
+          <div className="col-md-4">
             <div className="card h-100">
-              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
-              <div className="card-body">
-                <h5 className="card-title text-center">Mens's Clothing</h5>
+              <div className="card-body text-center">
+                <h2 className="card-title">Our Mission</h2>
+                <hr />
+                <p className="card-text lead">
+                  Our mission is to bring the latest trends and timeless classics to your wardrobe. We carefully curate our collections to ensure that each piece reflects our commitment to quality, style, and sustainability. Whether you're looking for casual everyday wear, elegant evening attire, or something in between, we've got you covered.
+                </p>
               </div>
             </div>
           </div>
-          <div className="col-md-3 col-sm-6 mb-3 px-3">
+          <div className="col-md-4">
             <div className="card h-100">
-              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
-              <div className="card-body">
-                <h5 className="card-title text-center">Women's Clothing</h5>
+              <div className="card-body text-center">
+                <h2 className="card-title">Our Vision</h2>
+                <hr />
+                <p className="card-text lead">
+                  We envision a world where fashion is accessible to everyone, where everyone can express themselves through their clothing choices without compromising on quality or ethics. We aim to be a leader in the fashion industry by continuously innovating and adapting to the ever-changing landscape of style and sustainability.
+                </p>
               </div>
             </div>
           </div>
-          <div className="col-md-3 col-sm-6 mb-3 px-3">
+          <div className="col-md-4">
             <div className="card h-100">
-              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/1927259/pexels-photo-1927259.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
-              <div className="card-body">
-                <h5 className="card-title text-center">Jewelery</h5>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3 col-sm-6 mb-3 px-3">
-            <div className="card h-100">
-              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
-              <div className="card-body">
-                <h5 className="card-title text-center">Electronics</h5>
+              <div className="card-body text-center">
+                <h2 className="card-title">Why Choose Us?</h2>
+                <hr />
+                <ul className="list-unstyled lead">
+                  <li>Quality: We source our materials from trusted suppliers to ensure that every item in our store meets our high standards of quality and durability.</li>
+                  <li>Style: Our team of fashion experts is dedicated to bringing you the latest trends and timeless pieces that you'll love.</li>
+                  <li>Sustainability: We are committed to ethical and sustainable practices, from sourcing materials to manufacturing processes.</li>
+                  <li>Customer Service: Your satisfaction is our top priority. Our friendly and knowledgeable customer service team is always here to help.</li>
+                </ul>
               </div>
             </div>
           </div>
