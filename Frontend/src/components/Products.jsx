@@ -90,7 +90,7 @@ const Products = () => {
                 <p className="card-text">{product.description.substring(0, 90)}...</p>
               </div>
               <ul className="list-group list-group-flush">
-                <li className="list-group-item lead">$ {product.price}</li>
+                <li className="list-group-item lead">{product.price} DH</li>
               </ul>
               <div className="card-body">
                 <Link to={"/product/" + product.id} className="btn btn-dark m-1">
