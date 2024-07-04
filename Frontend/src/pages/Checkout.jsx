@@ -160,7 +160,7 @@ const Checkout = () => {
                         <br />
                         <select className="form-select" id="country" required>
                           <option value="">Choose...</option>
-                          <option>India</option>
+                          <option>Morocco</option>
                         </select>
                         <div className="invalid-feedback">
                           Please select a valid country.
@@ -174,7 +174,18 @@ const Checkout = () => {
                         <br />
                         <select className="form-select" id="state" required>
                           <option value="">Choose...</option>
-                          <option>Punjab</option>
+                          <option>Casablanca-Settat</option>
+                          <option>Fès-Meknès</option>
+                          <option>Rabat-Salé-Kénitra</option>
+                          <option>Tanger-Tétouan-Al Hoceïma</option>
+                          <option>Marrakech-Safi</option>
+                          <option>Souss-Massa</option>
+                          <option>Béni Mellal-Khénifra</option>
+                          <option>Oriental</option>
+                          <option>Drâa-Tafilalet</option>
+                          <option>Guelmim-Oued Noun</option>
+                          <option>Laâyoune-Sakia El Hamra</option>
+                          <option>Dakhla-Oued Ed-Dahab</option>
                         </select>
                         <div className="invalid-feedback">
                           Please provide a valid state.
