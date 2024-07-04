@@ -10,9 +10,9 @@ const Home = () => {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="./assets/slide_1.jpg"
+              src="./assets/slide_22.jpg"
               alt="First slide"
-              height={500}
+
             />
             <Carousel.Caption className="d-flex align-items-center justify-content-center">
 
@@ -23,7 +23,7 @@ const Home = () => {
               className="d-block w-100"
               src="./assets/slide_2.jpg"
               alt="Second slide"
-              height={500}
+
             />
             <Carousel.Caption className="d-flex align-items-center justify-content-center">
               <div>
@@ -37,7 +37,7 @@ const Home = () => {
               className="d-block w-100"
               src="./assets/slide_3.jpg"
               alt="Third slide"
-              height={500}
+
             />
             <Carousel.Caption className="d-flex align-items-center justify-content-center">
               <div>
