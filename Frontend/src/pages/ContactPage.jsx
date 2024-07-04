@@ -17,8 +17,14 @@ const ContactPage = () => {
         message,
       });
       setResponseMessage('Thank you for your message. Our service will contact you as soon as possible. ');
+      setName('');
+      setEmail('');
+      setMessage('');
     } catch (error) {
       //console.error('Error sending message:', error);
+      setName('');
+      setEmail('');
+      setMessage('');
       setResponseMessage('Thank you for your message. Our service will contact you as soon as possible. ');
     }
   };
