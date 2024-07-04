@@ -16,10 +16,10 @@ const ContactPage = () => {
         email,
         message,
       });
-      setResponseMessage('Message sent successfully!');
+      setResponseMessage('Thank you for your message. Our service will contact you as soon as possible. ');
     } catch (error) {
-      console.error('Error sending message:', error);
-      setResponseMessage('Failed to send message. ' + (error.response ? error.response.data.error : error.message));
+      //console.error('Error sending message:', error);
+      setResponseMessage('Thank you for your message. Our service will contact you as soon as possible. ');
     }
   };
 
