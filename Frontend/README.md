@@ -57,4 +57,4 @@ This project is a fully functional e-commerce application built with React, Node
 
 ## Screenshots
 
-![App Screenshot](https://i.ibb.co/G0xybBr/Ecommerce-Website.png)
+![App Screenshot](public/assets/Ecommerce%20Website.png)
